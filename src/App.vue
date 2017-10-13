@@ -31,6 +31,8 @@
           <input type="text" @input="changeTxt"/>
         </div>
         <vuex-child-cpt></vuex-child-cpt>
+        <v-draggable></v-draggable>
+        
     </div>
   </div>
 </template>
@@ -42,6 +44,7 @@ import vComponentA from './components/v-component-a.vue'
 import vComponentB from './components/v-component-b.vue' 
 import slotA from './components/slot-a.vue'
 import vuexChildCpt from './components/vuex-child-component.vue'
+import vDraggable from './components/v-draggable.vue'
 export default {
   name: 'app',
   data(){
@@ -49,13 +52,21 @@ export default {
       name:{data:''},
       data1:'',
       grandson:{data:''},
-      info:'看看我出来了没有'
+      info:'看看我出来了没有',
+      
     }
   }, 
   computed: {
       count () {
           return this.$store.state.count
-      }
+      },
+      dragOptions () {
+        return  {
+          animation:2,
+          group: 'people',
+          ghostClass: 'ghost'
+        };
+      },
   }, 
   components:{
     vHeader:vheader,
@@ -63,7 +74,8 @@ export default {
     vComponentA:vComponentA,
     vComponentB:vComponentB,
     slotA:slotA,
-    vuexChildCpt:vuexChildCpt
+    vuexChildCpt:vuexChildCpt,
+    vDraggable
   },
   methods:{
     showNum(abc){
@@ -77,6 +89,18 @@ export default {
     },
     changeTxt(){
       console.log(123130)
+    }
+  },
+  watch: {
+    isDragging (newValue) {
+      console.log(123)
+      if (newValue){
+        this.delayedDragging= true
+        return
+      }
+      this.$nextTick( () =>{
+           this.delayedDragging =false
+      })
     }
   }
 }
