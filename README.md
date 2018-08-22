@@ -28,8 +28,12 @@ Vue.component('custom',{
 props:{
  count:{
   type:Number, //类型
+  type:[Number,String],//多个类型验证
   default:10, //默认值
-  required：true //是否必填
+  required：true,//是否必填
+  validator:function(value){
+    return value > 10
+  }      //自定义验证方式
  }
 }
 ```
