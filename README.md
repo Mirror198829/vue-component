@@ -22,6 +22,17 @@ Vue.component('custom',{
  }
 })
 ```
+## props验证
+根据配置来验证，如果不符合要求浏览器会有错误提示
+``` javascript
+props:{
+ count:{
+  type:Number, //类型
+  default:10, //默认值
+  required：true //是否必填
+ }
+}
+```
 ## 备注
 Vue是在浏览器解析和标准化html后才能获取模板内容，有些元素限制了被它包裹的元素。  
 例如：ul中只能放li，table里面只能放tbody；select中只能放option  
