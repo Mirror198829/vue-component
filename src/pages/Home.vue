@@ -5,14 +5,14 @@
         <el-input style="margin-top:10px" v-model="name.data" placeholder="地址传递数据给子组件"></el-input>
         <el-input style="margin-top:10px" v-model="data1" placeholder="值传递数据给子组件"></el-input>
         <el-input style="margin-top:10px" v-model="grandson.data" placeholder="地址传递给孙子组件"></el-input>
-        <button >我是showNum按钮</button>
-        <div class="childCptWrap">         
-          <v-header  :my-message="name" @getnum="showNum" :my-data="data1" :my-grandson="grandson"></v-header>
-          <div class="clear" style="width:100%">
-            <div style="float:left;" class="cptWrap">
+        <button style="margin-top:20px">我是showNum按钮</button>
+        <div class="childCptWrap" style="margin-top:20px">         
+          <v-header  :my-message="name" @getnum="showNum" :my-data="data1" :my-grandson="grandson" style="margin-bottom:20px"></v-header>
+          <div class="clear" style="width:100%;display:flex">
+            <div  class="cptWrap" style="margin-right:20px;flex:1;text-align:center">
               <v-component-a></v-component-a>
             </div>
-            <div style="float:right" class="cptWrap">
+            <div class="cptWrap" style="flex:1;text-align:center">
               <v-component-b></v-component-b>           
             </div>
           </div>         

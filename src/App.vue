@@ -9,6 +9,7 @@
       active-text-color="#ffd04b"
       >
       <el-menu-item index="/">组件</el-menu-item>
+      <el-menu-item index="/slot">slot</el-menu-item>
       <el-menu-item index="/drag">拖拽插件</el-menu-item>
     </el-menu>
     <div  class="main">
@@ -42,7 +43,7 @@ html,body{width:100%;height:100%;}
 body{background-color:#fff}
 a{text-decoration: none;color:@font-color;}
 #app {display: flex;flex-direction: column;height:100%;}
-.main{flex:1;overflow:auto;background-color:#c9d6df}
+.main{flex:1;overflow:auto;background-color:#fff}
 .clear{ zoom:1;}
 .clear:after{ content:''; display:block; clear:both;}
 </style>
