@@ -7,7 +7,7 @@
 2. 作为子组件的computed属性  
 ``` javascript
 //错误示例
-<custom :count="count></custom>
+<custom :count="count"></custom>
 
 Vue.component('custom',{
  props:['count'],
