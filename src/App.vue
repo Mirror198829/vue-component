@@ -8,8 +8,9 @@
       text-color="#fff"
       active-text-color="#ffd04b"
       >
-      <el-menu-item index="/">组件</el-menu-item>
+      <el-menu-item index="/">组件概念</el-menu-item>
       <el-menu-item index="/slot">slot</el-menu-item>
+      <el-menu-item index="/cptDemo">组件示例</el-menu-item>
       <el-menu-item index="/drag">拖拽插件</el-menu-item>
     </el-menu>
     <div  class="main">
