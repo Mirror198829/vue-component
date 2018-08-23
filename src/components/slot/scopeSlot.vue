@@ -1,6 +1,6 @@
 <!-- 
 - Author:CaoJing
-- Date:2018/8/22
+- Date:2018/8/23
 - github:https://github.com/Mirror198829
 -->
 <template>
@@ -9,36 +9,13 @@
       <div class="slotWrap">
         <div class="slotTitle">卡槽区域A</div>
         <div class="slotMain">
-          <slot name="a">
+          <slot>
             <span class="slotTxt">为嘛什么都不传，我是卡槽a</span>
           </slot>
         </div>
       </div>
       <p>我不是卡槽区域哟~</p>
-      <div class="slotWrap">
-        <div class="slotTitle">卡槽区域B</div>
-        <div class="slotMain">
-          <slot name="b">
-            <span class="slotTxt">为嘛什么都不传，我是卡槽b</span>
-          </slot>
-        </div>
-      </div>
-      <div class="slotWrap">
-        <div class="slotTitle">卡槽区域C</div>
-        <div class="slotMain">
-          <slot name="C">
-            <span class="slotTxt">为嘛什么都不传，我是卡槽C</span>
-          </slot>
-        </div>
-      </div>
-      <div class="slotWrap">
-        <div class="slotTitle">卡槽区域Slot无名氏</div>
-        <div class="slotMain">
-          <slot>
-            <span class="slotTxt">我是一个无名氏slot</span>
-          </slot>
-        </div>
-      </div>
+      <p>看看这个message值：<span style="font-weight:700">{{message}}</span></p>
   </div>
 </template>
 
@@ -47,7 +24,7 @@ export default {
   name: 'customSlotName',
   data () {
     return {
-      
+      message:'message:我是子组件数据'
     }
   },
   methods:{

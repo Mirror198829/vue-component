@@ -30,8 +30,25 @@
       <custom-slot-name></custom-slot-name>
       <custom-slot-name>
         <em slot="a">通过name ‘a’插入卡槽咯</em>
-        <code slot="b">通过name ‘b’插入卡槽咯</code>
+        <code slot="b">
+          通过name ‘b’插入卡槽咯
+        </code>
       </custom-slot-name>
+      <custom-slot-name>
+        <em slot="a">通过name ‘a’插入卡槽咯</em>
+        <code slot="b">
+          通过name ‘b’插入卡槽咯
+        </code>
+        <h3>啥玩意儿，我应该放哪里，我没有name</h3>
+        <em>偶也不知道放哪里哟</em>
+      </custom-slot-name>
+    </div>
+    <hr/>
+    <h1 class="pTitle">作用域</h1>
+    <div class="wrapCpt">
+      <scope-slot>
+        <span style="font-weight:700;">{{message}}</span>
+      </scope-slot>
     </div>
   </div>
 </template>
@@ -39,15 +56,17 @@
 <script>
 import customSlot from '@/components/slot/slot'
 import customSlotName from '@/components/slot/slotName'
+import scopeSlot from '@/components/slot/scopeSlot'
 export default {
   name: '',
   components:{
     customSlot,
-    customSlotName
+    customSlotName,
+    scopeSlot
   },
   data () {
     return {
-      
+      message:'message:我是父组件数据'
     }
   },
   methods:{
