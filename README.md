@@ -61,6 +61,34 @@ props:{
 父组件模板的内容在父组件作用域内编译；  
 子组件模板的内容在子组件作用域内编译
 
+## 动态组件
+多个组件可以使用同一个挂载点，动态在他们之间切换  
+使用`<componet>`，使用is进行动态绑定  
+``` html
+ <div class="section">
+      <h1 class="sectionTitle">动态组件</h1>
+      <div style="margin-bottom:20px;">
+        <button @click="changeCpt(1)">组件1</button>
+        <button @click="changeCpt(2)">组件2</button>
+        <button @click="changeCpt(3)">组件3</button>
+      </div>
+      <component :is="curcomponet"></component>
+      <keep-alive>    //保存状态，不被改变
+         <component :is="curcomponet"></component>
+      </keep-alive>
+    </div>
+```
+``` javascript
+import cptOne from '@/components/cpt/cpt1'
+import cptTwo from '@/components/cpt/cpt2'
+import cptThree from '@/components/cpt/cpt3'
+data () {
+    return {
+      curcomponet:cptOne
+    }
+  }
+```
+
 ## 解析DOM模板时的注意事项
 Vue是在浏览器解析和标准化html后才能获取模板内容，有些元素限制了被它包裹的元素。  
 例如：ul中只能放li，table里面只能放tbody；select中只能放option  
