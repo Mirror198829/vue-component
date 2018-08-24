@@ -28,11 +28,23 @@
         </cj-alert>
       </div>
     </div>
+    <div class="section">
+      <h1 class="sectionTitle">动态组件</h1>
+      <div style="margin-bottom:20px;">
+        <button @click="changeCpt(1)">组件1</button>
+        <button @click="changeCpt(2)">组件2</button>
+        <button @click="changeCpt(3)">组件3</button>
+      </div>
+      <component :is="curcomponet"></component>
+    </div>
   </div>
 </template>
 
 <script>
 import cjAlert from '@/components/cpt/cjAlert'
+import cptOne from '@/components/cpt/cpt1'
+import cptTwo from '@/components/cpt/cpt2'
+import cptThree from '@/components/cpt/cpt3'
 export default {
   name: '',
   components:{
@@ -40,12 +52,22 @@ export default {
   },
   data () {
     return {
-      
+      curcomponet:cptOne
     }
   },
   methods:{
     closehandle(){
       alert('触发删除事件拉')
+    },
+    changeCpt(index){
+      switch(index){
+        case 1 : this.curcomponet = cptOne; 
+                  break;
+        case 2 : this.curcomponet = cptTwo; 
+                  break;
+        case 3 : this.curcomponet = cptThree; 
+                  break;
+      }
     }
   },
   mounted(){},
