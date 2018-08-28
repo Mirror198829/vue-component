@@ -1,6 +1,20 @@
 # Vuex
-参考地址：https://vuex.vuejs.org/zh/guide/
+参考地址：https://vuex.vuejs.org/zh/guide/  
+Vuex:状态管理模式，采用集中式存储管理应用的所有组件的状态，并以`相应的规则`(修改状态的唯一途径:mutation)保证状态以一种可预测的方式发生改变。  
 ****
+``` javascript
+let store = new Vuex.Store({
+  state:{
+    count:110 //定义一个状态
+  },
+  mutations:{
+    updateCount(state){        //改变state状态，其中state是默认传的
+       state.count += 1
+    }
+  }
+})
+```
+vuex中的状态是响应的，在data里面定义的不会因为state的改变而改变，只在当前组件有反应，所以要用计算属性才有反应
 # Vue组件
 ## 组件的主要特点  
 重用性 --能够公用和通用  
