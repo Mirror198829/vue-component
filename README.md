@@ -18,7 +18,7 @@ vuex中的状态是响应的，在data里面定义的不会因为state的改变�
 注意：传参通常传的是一个对象。  
 `store`:仓库，它包含大部分的状态，状态存储是响应式的，不能直接改变store中的状态  
 `getter`:派分状态，抽离操作状态的逻辑，可被多组件使用  
-`mutation`:修改状态的唯一途径，要使改变状态可被记录，必须要commit一个mutation；mutation必须是同步更新状态  
+`mutation`:mutation必须是同步更新状态；修改状态的唯一途径，要使改变状态可被记录，必须要commit一个mutation；
 `action`：异步操作，Action提交的是mutation，而不是直接变更状态
 # Vue组件
 ## 组件的主要特点  
