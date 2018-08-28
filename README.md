@@ -1,4 +1,5 @@
 # Vuex
+参考地址：https://vuex.vuejs.org/zh/guide/
 ****
 # Vue组件
 ## 组件的主要特点  
