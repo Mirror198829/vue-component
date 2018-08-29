@@ -7,19 +7,39 @@ let store = new Vuex.Store({
   state:{
     count:110 //定义一个状态
   },
-  mutations:{
-    updateCount(state){        //改变state状态，其中state是默认传的
+  mutations:{ //改变state状态，其中state是默认传的，通过commit触发 
+    updateCount(state){        
        state.count += 1
     }
+  },
+  getters:{    //数据深层次处理。类似组件的computed，是vuex对state的数据处理
+    totals(state){
+      return state.shopLst.reduce((startCount,item) => startCount+item.count,0)
+   }
+  },
+  actions:{     //异步操作,得通过分发方式出发 dispatch
+    updateCountAction(store,params){	
+	    setTimeout(() => {
+	  	  store.commit('addNumAction',params)
+	    },3000)
+	  },
   }
 })
 ```
-vuex中的状态是响应的，在data里面定义的不会因为state的改变而改变，只在当前组件有反应，所以要用计算属性才有反应。  
-注意：传参通常传的是一个对象。  
+#### 核心概念
 `store`:仓库，它包含大部分的状态，状态存储是响应式的，不能直接改变store中的状态  
+
 `getter`:派分状态，抽离操作状态的逻辑，可被多组件使用  
+
 `mutation`:mutation必须是同步更新状态；修改状态的唯一途径，要使改变状态可被记录，必须要commit一个mutation；如果mutation里面有异步的操作，那么记录的值还是之前的值。  因此，只要有异步操作就得放到action里面
-`action`：异步操作，Action提交的是mutation，而不是直接变更状态，分发状态 dispatch  
+
+`action`：异步操作，Action提交的是mutation，而不是直接变更状态，分发状态 dispatch 
+
+>注意：
+
+1. 传参通常传的是一个对象。  
+2. vuex中的状态是响应的，在data里面定义的不会因为state的改变而改变，只在当前组件有反应，所以要用计算属性才有反应。
+ 
 #### vuex原则
 1. 每个应用只有一个store实例  
 2. 更改store中的状态的唯一方法是提交mutation  
