@@ -4,6 +4,10 @@ const state={
 	shopLst:[
 		{count:2,id:1},
 		{count:5,id:2}
+	],
+	shopLstByAction:[
+		{count:2,id:1},
+		{count:5,id:2}
 	]
 }
 export default state

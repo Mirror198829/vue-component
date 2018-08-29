@@ -2,6 +2,9 @@
 let getters={
 	totals(state){
     return state.shopLst.reduce((startCount,item) => startCount+item.count,0)
+  },
+  totalsByAction(state){
+    return state.shopLstByAction.reduce((startCount,item) => startCount+item.count,0)
   }
 }
 export default getters

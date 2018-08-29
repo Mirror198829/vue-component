@@ -33,6 +33,18 @@
       </div>
       <h4 style="text-align:center;">统计总数为：{{$store.getters.totals}}</h4>
     </div>
+    <hr style="margin:20px 0"/>
+    <div>
+      <h2>计数器示例(异步操作actions)</h2>
+      <div>
+        <p class="transmit" v-for="item in shopLstByAction" :key="item.id">
+          <el-button class="tranBtn" @click="decreaseByAction(item.id)">-</el-button>
+          <span>{{item.count}}</span>
+          <el-button class="tranBtn" @click= "addNumByAction(item.id)">+</el-button>
+        </p>
+      </div>
+      <h4 style="text-align:center;">统计总数为：{{$store.getters.totalsByAction}}</h4>
+    </div>
   </div>
 </template>
 
@@ -50,6 +62,9 @@ export default {
     },
     shopLst(){
       return this.$store.state.shopLst
+    },
+    shopLstByAction(){
+      return this.$store.state.shopLstByAction
     }
   },
   methods:{
@@ -61,7 +76,13 @@ export default {
     },
     decrease(id){
       this.$store.commit('decrease',{id})
-    }
+    },
+    addNumByAction(id){
+      this.$store.dispatch('updateCountAction',{id})
+    },
+    decreaseByAction(id){
+      this.$store.dispatch('decreaseCountAction',{id})
+    },
   },
   mounted(){},
   created(){}

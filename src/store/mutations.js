@@ -23,6 +23,17 @@ const mutations={
       let item = state.shopLst.find(item => item.id == preload.id)
       if(item.count == 0) return false
       item.count --
+    },
+    addNumAction(state,preload){
+      let id = preload
+      let item = state.shopLstByAction.find(item => item.id == preload.id)
+      item.count ++
+    },
+    decreaseAction(state,preload){
+      let id = preload
+      let item = state.shopLstByAction.find(item => item.id == preload.id)
+      if(item.count == 0) return false
+      item.count --
     }
 
 }
