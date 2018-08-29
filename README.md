@@ -36,7 +36,6 @@ let store = new Vuex.Store({
 `action`：异步操作，Action提交的是mutation，而不是直接变更状态，分发状态 dispatch 
 
 >注意：
-
 1. 传参通常传的是一个对象。  
 2. vuex中的状态是响应的，在data里面定义的不会因为state的改变而改变，只在当前组件有反应，所以要用计算属性才有反应。
  
