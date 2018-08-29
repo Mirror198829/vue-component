@@ -33,7 +33,33 @@ let store = new Vuex.Store({
 
 `mutation`：mutation必须是同步更新状态；修改状态的唯一途径，要使改变状态可被记录，必须要commit一个mutation；如果mutation里面有异步的操作，那么记录的值还是之前的值。  因此，只要有异步操作就得放到action里面
 
-`action`：异步操作，Action提交的是mutation，而不是直接变更状态，分发状态 dispatch 
+`action`：异步操作，Action提交的是mutation，而不是直接变更状态，分发状态 dispatch   
+  
+`modules`：应用变得非常复杂时，store 对象就有可能变得相当臃肿，因此Vuex 允许我们将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter。
+``` javascript
+const moduleA = {
+  state: { ... },
+  mutations: { ... },
+  actions: { ... },
+  getters: { ... }
+}
+
+const moduleB = {
+  state: { ... },
+  mutations: { ... },
+  actions: { ... }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
+})
+
+store.state.a // -> moduleA 的状态
+store.state.b // -> moduleB 的状态
+```
 
 >注意：
 1. 传参通常传的是一个对象。  
