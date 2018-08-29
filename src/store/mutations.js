@@ -12,6 +12,18 @@ const mutations={
   		let min = 0
   		let index = Math.floor(Math.random()*(max-min+1)+min)
   		state.name = arr[index]
-  	}
+  	},
+    addNum(state,preload){
+      let id = preload
+      let item = state.shopLst.find(item => item.id == preload.id)
+      item.count ++
+    },
+    decrease(state,preload){
+      let id = preload
+      let item = state.shopLst.find(item => item.id == preload.id)
+      if(item.count == 0) return false
+      item.count --
+    }
+
 }
 export default mutations
