@@ -4,8 +4,8 @@ Vuex:状态管理模式，采用集中式存储管理应用的所有组件的状
 ****
 ``` javascript
 let store = new Vuex.Store({
-  state:{
-    count:110 //定义一个状态
+  state:{ //定义一个状态，状态的修改只能通过mutations实现，无法直接赋值
+    count:110 
   },
   mutations:{ //改变state状态，其中state是默认传的，通过commit触发 
     updateCount(state){        
