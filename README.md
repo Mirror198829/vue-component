@@ -27,11 +27,11 @@ let store = new Vuex.Store({
 })
 ```
 #### 核心概念
-`store`:仓库，它包含大部分的状态，状态存储是响应式的，不能直接改变store中的状态  
+`store`：仓库，它包含大部分的状态，状态存储是响应式的，不能直接改变store中的状态  
 
-`getter`:派分状态，抽离操作状态的逻辑，可被多组件使用  
+`getter`：派分状态，抽离操作状态的逻辑，可被多组件使用  
 
-`mutation`:mutation必须是同步更新状态；修改状态的唯一途径，要使改变状态可被记录，必须要commit一个mutation；如果mutation里面有异步的操作，那么记录的值还是之前的值。  因此，只要有异步操作就得放到action里面
+`mutation`：mutation必须是同步更新状态；修改状态的唯一途径，要使改变状态可被记录，必须要commit一个mutation；如果mutation里面有异步的操作，那么记录的值还是之前的值。  因此，只要有异步操作就得放到action里面
 
 `action`：异步操作，Action提交的是mutation，而不是直接变更状态，分发状态 dispatch 
 
