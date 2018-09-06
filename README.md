@@ -109,7 +109,7 @@ Vue.component('custom',{
 ``` javascript
 props:{
  count:{
-  type:Number, //类型，验证类型为原生构造器：String、Number、FunctionObject、Boolean、Array
+  type:Number, //类型，验证类型为原生构造器：String、Number、Function、Object、Boolean、Array
   type:[Number,String],//多个类型验证
   default:10, //默认值
   required：true,//是否必填
