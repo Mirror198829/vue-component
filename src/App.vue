@@ -13,6 +13,7 @@
       <el-menu-item index="/cptDemo">组件示例</el-menu-item>
       <el-menu-item index="/drag">拖拽插件</el-menu-item>
       <el-menu-item index="/vueX">vuex</el-menu-item>
+      <el-menu-item index="/objDefine">响应式数据原理</el-menu-item>
     </el-menu>
     <div  class="main">
       <router-view></router-view>

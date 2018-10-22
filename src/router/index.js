@@ -4,6 +4,7 @@ import Home from '@/pages/Home.vue'
 import Drag from '@/pages/drag.vue'
 import Slot from '@/pages/slot.vue'
 import CptDemo from '@/pages/CptDemo.vue'
+import ObjDefine from '@/pages/ObjDefine'
 import VueX from '@/pages/vuex.vue'
 
 Vue.use(Router)
@@ -35,5 +36,10 @@ export default new Router({
       name: 'vueX',
       component: VueX
     },
+    {
+      path: '/objDefine',
+      name: 'ObjDefine',
+      component: ObjDefine
+    }
   ]
 })
