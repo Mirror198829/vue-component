@@ -15,7 +15,7 @@
       </custom-slot>
       <custom-slot>
         <ul>
-          <li v-for="item in 3">列表{{item}}</li>
+          <li v-for="(item,key) in 3" :key="key">列表{{item}}</li>
         </ul>
       </custom-slot>
       <custom-slot>
