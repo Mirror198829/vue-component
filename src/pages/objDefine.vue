@@ -2,7 +2,7 @@
  * @Author: caojing 
  * @Date: 2018-10-22 16:57:26 
  * @Last Modified by: caojing
- * @Last Modified time: 2018-10-24 17:09:52
+ * @Last Modified time: 2018-10-24 17:16:27
  */
 <template>
   <div>
@@ -42,7 +42,6 @@ export default {
               return value
             },
             set(newValue){
-              console.log(`触发了吗`)
               value = newValue
               txt.innerText = value
             }
