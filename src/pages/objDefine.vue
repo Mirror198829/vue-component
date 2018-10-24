@@ -2,7 +2,7 @@
  * @Author: caojing 
  * @Date: 2018-10-22 16:57:26 
  * @Last Modified by: caojing
- * @Last Modified time: 2018-10-24 16:51:55
+ * @Last Modified time: 2018-10-24 17:09:52
  */
 <template>
   <div>
@@ -25,7 +25,7 @@ export default {
         let txt = document.getElementById('title')
         let data = {
           title:'新闻',
-          name:'前端'
+          name:'小说'
         }
         let val = '新的值'
 
@@ -42,6 +42,7 @@ export default {
               return value
             },
             set(newValue){
+              console.log(`触发了吗`)
               value = newValue
               txt.innerText = value
             }
