@@ -6,7 +6,7 @@ import Slot from '@/pages/slot.vue'
 import CptDemo from '@/pages/CptDemo.vue'
 import ObjDefine from '@/pages/ObjDefine'
 import VueX from '@/pages/vuex.vue'
-
+import D2 from '@/pages/d2.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -40,6 +40,11 @@ export default new Router({
       path: '/objDefine',
       name: 'ObjDefine',
       component: ObjDefine
+    },
+    {
+      path: '/d2',
+      name: 'D2',
+      component:D2
     }
   ]
 })
