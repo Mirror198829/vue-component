@@ -1,12 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/pages/Home.vue'
-import Drag from '@/pages/drag.vue'
-import Slot from '@/pages/slot.vue'
-import CptDemo from '@/pages/CptDemo.vue'
-import ObjDefine from '@/pages/ObjDefine'
-import VueX from '@/pages/vuex.vue'
-import D2 from '@/pages/d2.vue'
+import ComponentRouter from './componentRouter'
 Vue.use(Router)
 
 export default new Router({
@@ -14,37 +8,38 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component:() => import('@/pages/Home.vue')
     },
     {
       path: '/drag',
       name: 'drag',
-      component: Drag
+      component:() => import('@/pages/drag.vue')
     },
     {
       path: '/slot',
       name: 'slot',
-      component: Slot
+      component:() => import('@/pages/slot.vue')
     },
     {
       path: '/cptDemo',
       name: 'cptDemo',
-      component: CptDemo
+      component: () => import('@/pages/cptDemo.vue')
     },
     {
       path: '/vueX',
       name: 'vueX',
-      component: VueX
+      component: () => import('@/pages/vueX.vue')
     },
     {
       path: '/objDefine',
       name: 'ObjDefine',
-      component: ObjDefine
+      component: () => import('@/pages/ObjDefine.vue')
     },
     {
       path: '/d2',
       name: 'D2',
-      component:D2
-    }
+      component:() => import('@/pages/d2.vue')
+    },
+    ...ComponentRouter
   ]
 })

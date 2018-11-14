@@ -8,10 +8,25 @@
         text-color="#fff"
         active-text-color="#ffd04b"
         >
-        <el-menu-item index="/">组件概念</el-menu-item>
-        <el-menu-item index="/slot">slot</el-menu-item>
-        <el-menu-item index="/cptDemo">组件示例</el-menu-item>
-        <el-menu-item index="/drag">拖拽插件</el-menu-item>
+        <el-submenu index="1">
+           <template slot="title">
+            <span>组件概念</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="/">父子组件</el-menu-item>
+            <el-menu-item index="/slot">slot</el-menu-item>
+            <el-menu-item index="/drag">拖拽插件</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-submenu index="2">
+           <template slot="title">
+            <span>组件库</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="/button">Button 按钮</el-menu-item>
+            <el-menu-item index="/cptDemo">提示框/动态组件</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
         <el-menu-item index="/vueX">vuex</el-menu-item>
         <el-menu-item index="/objDefine">响应式数据原理</el-menu-item>
         <el-menu-item index="/d2">d2</el-menu-item>
