@@ -6,9 +6,6 @@
 <template>
   <div id="cptDemo">
     <div class="section">
-      <h1 class="sectionTitle">模态框</h1>
-    </div>
-    <div class="section">
       <h1 class="sectionTitle">提示框</h1>
       <div class="alertWrap">
         <cj-alert :showicon="true" @close-click="closehandle"></cj-alert>
