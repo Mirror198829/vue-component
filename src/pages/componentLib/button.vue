@@ -2,7 +2,7 @@
  * @Author: caojing
  * @Date: 2018-11-14 14:11:18
  * @LastEditors: caojing
- * @LastEditTime: 2018-11-14 17:28:26
+ * @LastEditTime: 2018-11-15 15:06:45
  */
 <template>
     <div>
@@ -16,13 +16,20 @@
       <nl-button size="small">small</nl-button>
       <nl-button type='primary'  size="small">small</nl-button>
       <nl-button type='plain'  size="small">small</nl-button>
+
+      <div v-show="showA">
+            <codemirror v-model="code" :options="{mode:'text/css'}"></codemirror>
+      </div>
+      
     </div>
 </template>
 <script>
+import ButtonCode from '../../code/button'
 export default {
     data(){
         return {
-             
+           showA:true,
+           code:ButtonCode.btnTypeCode,
         }
     }
 }
@@ -30,3 +37,5 @@ export default {
 <style lang="less" scoped>
 
 </style>
+
+
