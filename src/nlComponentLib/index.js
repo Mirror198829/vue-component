@@ -9,5 +9,5 @@ import nlPageTitle from './components/nlPageTitle';
 import nlButton from './components/nlButton';
 export default (Vue)=>{
     Vue.component("nlPageTitle",nlPageTitle);
-    Vue.component("nlButton",nlButton)
+    Vue.component("nlButton",nlButton);
 }

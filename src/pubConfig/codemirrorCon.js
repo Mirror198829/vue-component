@@ -2,7 +2,7 @@
  * @Author: caojing
  * @Date: 2018-11-15 14:14:00
  * @LastEditors: caojing
- * @LastEditTime: 2018-11-15 15:12:27
+ * @LastEditTime: 2018-11-15 16:25:06
  */
 //vue-codemirror
 import Vue from 'vue';
@@ -21,7 +21,7 @@ import 'codemirror/addon/scroll/simplescrollbars.css'
 import 'codemirror/addon/scroll/simplescrollbars'
 
 Vue.use(VueCodemirror, { 
-    options: {
+    options: { 
       theme: 'monokai',
       styleActiveLine: false,
       lineNumbers: false,

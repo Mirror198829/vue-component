@@ -2,25 +2,27 @@
  * @Author: caojing
  * @Date: 2018-11-14 14:11:18
  * @LastEditors: caojing
- * @LastEditTime: 2018-11-15 15:06:45
+ * @LastEditTime: 2018-11-15 20:01:19
  */
 <template>
     <div>
-      <nl-page-title splitLine>Button 按钮</nl-page-title>
-      <nl-page-title>按钮 type</nl-page-title>
-      <nl-button>default</nl-button>
-      <nl-button type='primary'>primary</nl-button>
-      <nl-button type='plain'>plain</nl-button>
+      <vc-block vc-title="不同尺寸" vc-sub-title="Button 组件提供除了默认值以外的三种尺寸，可以在不同场景下选择合适的按钮尺寸。">
+          <div slot="nlCpt">
+              <nl-button size="small">small</nl-button>
+              <nl-button type='primary'  size="small">small</nl-button>
+              <nl-button type='plain'  size="small">small</nl-button>
+          </div>
+          <codemirror slot="code" v-model="code" :options="{mode:'text/css'}"></codemirror>
+      </vc-block>
 
-      <nl-page-title style="margin-top:20px;">按钮 size</nl-page-title>
-      <nl-button size="small">small</nl-button>
-      <nl-button type='primary'  size="small">small</nl-button>
-      <nl-button type='plain'  size="small">small</nl-button>
-
-      <div v-show="showA">
-            <codemirror v-model="code" :options="{mode:'text/css'}"></codemirror>
-      </div>
-      
+      <vc-block vc-title="基础用法" vc-sub-title="基础的按钮用法。">
+          <div slot="nlCpt">
+                <nl-button>default</nl-button>
+                <nl-button type='primary'>primary</nl-button>
+                <nl-button type='plain'>plain</nl-button>
+          </div>
+          <codemirror slot="code" v-model="code" :options="{mode:'text/css'}"></codemirror>
+      </vc-block>
     </div>
 </template>
 <script>
