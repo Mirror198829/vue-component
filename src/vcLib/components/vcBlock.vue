@@ -21,7 +21,7 @@ export default {
   name: 'vcBlock',
   data () {
     return {
-      isExpand:true
+      isExpand:false
     }
   },
   props:{
@@ -53,7 +53,7 @@ export default {
  .subTitle{font-size: 14px;color:#5e6d82;line-height: 1.5em;margin:14px 0;font-weight: 400;}
  .vcBlockWrap{
      border:@border;
-     .vcBlockHead{border-bottom:@border;padding:@suitW}
+     .vcBlockHead{border-bottom:@border;padding:24px;}
      .vcBlockMain{max-height:0;transition:max-height .5s;overflow: hidden;
         &.expanded{max-height:1000px}
         &:hover + .vcBlockFoot{
