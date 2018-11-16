@@ -76,17 +76,17 @@ a{text-decoration: none;color:@font-color;}
 @import '../less/index.less';
 @max-width:1400px;
 .box-shadow{box-shadow:1px 1px 3px 0px #ccc;z-index:100;}
-#foot{padding:15px;text-align: center;font-size:14px;background-color:#f6f9fc;color:@font-color;.box-shadow
+#foot{padding:15px;text-align: center;font-size:14px;background-color:#f6f9fc;color:@font-color;
   p:first-child{padding-bottom:2px;}
   a{
     &:hover{text-decoration:underline;}
   }
 }
 #app {display: flex;height:100%;width:100%;flex-direction: column;}
-header{height: 60px;background-color:#fff;background-color:#f6f9fc;.box-shadow;display:flex;justify-content:center;align-items:center;
+header{height: 60px;background-color:#f6f9fc;display:flex;justify-content:center;align-items:center;
   .headInfo{width:@max-width;display:flex;align-items:center;
     img{transform:scale(0.7);position:relative;left:20px;}
-    .logoTxt{font-size:20px;margin-left:30px;color:#48576a}
+    .logoTxt{font-size:20px;margin-left:30px;color:#48576a;font-family:'myfont'}
   }
 }
 .appMain{display: flex;flex:1;width:@max-width;margin:0 auto;}

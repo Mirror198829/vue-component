@@ -2,7 +2,7 @@
  * @Author: caojing
  * @Date: 2018-11-14 14:11:18
  * @LastEditors: caojing
- * @LastEditTime: 2018-11-15 20:01:19
+ * @LastEditTime: 2018-11-16 17:37:21
  */
 <template>
     <div>
@@ -37,7 +37,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-
+ .title{font-family: 'myfont'}
 </style>
 
 
