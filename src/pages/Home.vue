@@ -93,7 +93,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 @import '../../less/index.less';
-.parentCpt{padding:30px;width: 1000px;margin:0 auto;border-radius: 4px;background-color:@base-color;}
+.parentCpt{padding:30px;border-radius: 4px;background-color:@base-color;}
 .childCptWrap{margin-bottom:10px;}
 </style>
 <style  lang="less">

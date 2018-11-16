@@ -2,14 +2,14 @@
  * @Author: caojing
  * @Date: 2018-08-22 09:24:00
  * @LastEditors: caojing
- * @LastEditTime: 2018-11-15 16:43:29
+ * @LastEditTime: 2018-11-16 10:06:48
  */
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import store from './store'
-import 'element-ui/lib/theme-default/index.css'
+import 'element-ui/lib/theme-chalk/index.css';
 import 'font-awesome/css/font-awesome.css'
 import nlComponentLib from './nlComponentLib'
 import vcLib from './vcLib'
