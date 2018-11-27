@@ -6,6 +6,9 @@
  */
 <template>
     <div>
+      <div style="width:100%;height:500px">
+         <vue-topo :topo-data="{nodes:[],connectors:[]}"></vue-topo>
+      </div>
        <g2-line :charData="serverData" :id="'c1'"></g2-line>
     </div>
 </template>

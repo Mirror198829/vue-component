@@ -2,12 +2,14 @@
  * @Author: caojing
  * @Date: 2018-08-22 09:24:00
  * @LastEditors: caojing
- * @LastEditTime: 2018-11-16 17:33:28
+ * @LastEditTime: 2018-11-26 17:29:32
  */
 import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+import vTopo from 'vue-topo'
+import 'vue-topo/dist/vue-topo.min.css'
 import store from './store'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/css/font-awesome.css'
@@ -19,6 +21,7 @@ import './pubConfig/codemirrorCon'  //引入codemirror配置文件
 Vue.use(ElementUI)
 Vue.use(nlComponentLib)
 Vue.use(vcLib)
+Vue.use(vTopo)
 
 Vue.config.productionTip = false
 Vue.component('my-component',{
