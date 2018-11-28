@@ -90,8 +90,257 @@ data () {
     }
   }
 ```
-## Vue组件通信
-https://github.com/Mirror198829/Vue2.X/issues/4
+# 组件通信
+### 组件通信方式类别
+ 1. props/自定义事件
+ 2. eventbus(事件总线)
+ 3. vuex
+ 4. 其他通信方式   
+    深层次组件$attr 和 $listeners  
+    provide 和 inject 组件库使用的比较多  
+![avatar](https://mirror198829.github.io/static/vue/cptdata.jpg)
+
+| 通信方式 | 区别 |
+| --- | --- |
+| props | 用于父组件传递数据给子组件 |
+| 自定义事件 | 用于子组件向父组件通信 | 
+| eventBus | 适用于非父子组件通信的简单场景，使用一个空的vue实例作为中央事件总线 | 
+| Vuex | 状态管理，适用于复杂场景 |
+### props
+父组件传递数据给子组件：
+1.子组件显示地用props选项申明获得的数据：
+``` javascript
+export default {
+  name: 'vheader',
+  props:['myMessage','myData'],
+}
+```
+ 2.父组件传递数据
+``` html
+<v-header  my-message="vue2.0"  my-data="propsdownData"></v-header>
+```
+至此，子组件将获取到数据`vue2.0`和`porpsdownData`
+
+### 自定义事件
+每个vue实例都实现了事件接口：
+
+ - $on(eventName)监听事件（不能用 $on 侦听子组件释放的事件，而必须在模板里直接用 v-on 绑定）
+ - $emit(eventName)触发事件
+例如：
+``` html
+//App.vue 父组件
+<template>
+    <div id=”counter-event-example”>
+        <p>{{ total }}</p>
+        <button-counter v-on:increment=”incrementTotal”></button>
+    </div>
+</template>
+
+import buttonCounter from ‘./buttonCounter.vue’
+exoprt default{
+   name:’app’,
+   data(){
+    return{
+        Counter:0
+    }
+   },
+   componts:{
+    buttonCounter:buttonCounter
+    },
+    methods(){
+        incrementTotal(){
+            This.total += 1
+        }
+    }
+}
+```
+``` html
+//buttonCounter.vue 子组件
+<template>
+    <div>
+        <button @click=”incrementCounter”>点击触发父组件事件</button>
+    </div>
+</template>
+exoprt default{
+    name:’buttonCounter’,
+    methods(){
+    incrementCounter(){
+        this.$emit(‘increment’)
+      }
+    }
+}
+```
+#### 单向数据流
+父组件向子组件传递数据，子组件不允许修改这个数据 （大多数情况都是单项数据流）
+#### 双向数据流
+父组件传值给子组件，子组件可以直接改变传递的数据，有两种情况
+* sync
+``` html
+<Modal
+  v-show="show"
+ :app-show.sync = "show"
+></Modal>
+```
+``` javascript
+props:{
+  appShow:{}
+}
+onclick(){
+   this.$emit('update:appShow',false)
+}
+```
+* v-model  
+相对sync，v-model用的更多  
+在绑定的时候只能用1次
+``` html
+<Modal 
+    v-show = "show"
+    v-model = "show"
+></Modal>
+```
+``` javascript
+props:{
+    value:{
+        type:Boolean, //key值必须定义为value
+        default:false
+ }
+},
+methods:{
+   onClick(){
+       this.$emit('input',false)
+ }
+}
+```
+
+**注意点**
+**1.每次父组件更新，子组件所有prop会更新为最新值。因此，不能在子组件内部改变prop，如果做了，vue会在控制台给出警告。**
+**2.注意在 JavaScript 中对象和数组是引用类型，指向地址，如果 prop 是一个对象或数组，在子组件内部改变它会影响父组件的状态。**
+
+### 事件总线（eventbus）
+new Vue的实例上会有两个方法，$on $emit  
+利用$on监听事件，$emit发布事件  
+因此，有两种方式做事件总线
+* 作为插件，创建新的实例。new Vue（）
+* 使用$root访问根实例
+##### 方法一：创建一个新的实例
+1.创建中央事件总线eventbus.js:
+```javascript
+import Vue from 'vue'
+export default new Vue()
+```
+2.创建v-component-a.vue子组件
+``` html
+<template>
+  <div class="box">
+      <h3>子组件A(event bus)</h3>
+      <el-button style="margin-top:10px" type="primary" @click="touchCompontB">点击我触发子组件B的事件</el-button>
+  </div>
+</template>
+
+<script>
+import eventbus from '../eventbus.js'
+
+export default {
+  name: 'box',
+  data () {
+    return {
+      name: ''
+    }
+  },
+  methods:{
+    touchCompontB(){
+      eventbus.$emit('getName',['子组件b'])
+    }
+  },
+}
+</script>
+```
+3.创建v-component-b.vue子组件
+``` html
+<template>
+  <div class="box">
+      <h3>子组件B {{name}}</h3>
+      <el-button style="margin-top:10px" type="primary" @click="getMyMsg('自己')">点击我触发自己组件的事件</el-button>
+  </div>
+</template>
+
+<script>
+import eventbus from '../eventbus.js'
+
+export default {
+  name: 'box',
+  data () {
+    return {
+      name: ''
+    }
+  },
+  methods:{
+    getMyMsg(arg){
+      let msg="触发了"+arg+"组件的方法"
+      alert(msg)
+    }
+  },
+  created(){
+   eventbus.$on('getName',(arg)=>{    
+    this.getMyMsg(arg)
+   })
+ }
+}
+</script>
+```
+4.在父组件注册两个子组件
+``` html
+<template>
+  <div id="app">
+    <div class="parentCpt">       
+      <div class="clear" style="width:100%">
+        <div style="float:left;" class="cptWrap">
+          <v-component-a></v-component-a>
+        </div>
+        <div style="float:right" class="cptWrap">
+          <v-component-b></v-component-b>           
+        </div>
+      </div>         
+    </div>
+  </div>
+</template>
+
+<script>
+import vComponentA from './components/v-component-a.vue'
+import vComponentB from './components/v-component-b.vue' 
+export default {
+  name: 'app',
+  components:{
+    vComponentA:vComponentA,
+    vComponentB:vComponentB
+  }
+}
+</script>
+```
+**注意点：**
+``` javascript
+eventbus.$on('getName',(arg)=>{    
+    this.getMyMsg(arg)
+ })
+```
+**若写成es6的箭头函数，则直接写this，否则需要先在eventbus.$on之前将this赋值给let self=this;**
+
+
+##### 方法二：使用$root访问根实例  
+``` javascript
+//组件1：
+methods:{
+      downHandle(){
+        this.$root.$emit('add-todo','new data') 
+      }
+}
+//组件2：
+created(){
+   this.$root.$on('add-todo',(value)=>{
+        console.log(value)
+   })
+}
+```
 ## 解析DOM模板时的注意事项
 Vue是在浏览器解析和标准化html后才能获取模板内容，有些元素限制了被它包裹的元素。  
 例如：ul中只能放li，table里面只能放tbody；select中只能放option  
