@@ -19,6 +19,7 @@
             </template>
             <el-menu-item-group>
               <el-menu-item index="/">父子组件</el-menu-item>
+              <el-menu-item index="/cptTwoWayCommunication">组件双向通信</el-menu-item>
               <el-menu-item index="/slot">slot</el-menu-item>
               <el-menu-item index="/drag">拖拽插件</el-menu-item>
             </el-menu-item-group>
