@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div>
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
       <el-form-item label="活动名称" prop="name">
         <el-input v-model="ruleForm.name"></el-input>
@@ -33,14 +34,23 @@
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
+    </div>
+    <hr>
+    <div>
+      <h5 style="margin:5px 0">自定义组件cjInput实现数据双向绑定</h5>
+      {{cjInputVal}}
+      <cj-input v-model="cjInputVal"></cj-input>
+    </div>
   </div>
 </template>
 
 <script>
   import cjChildCpt from './childCpt/childTwoWayCpt'
+  import cjInput from './childCpt/cjInput'
   export default {
     data() {
       return {
+        cjInputVal:"我是一个双向数据绑定",
         ruleForm: {
           name: '',
           region: '',
@@ -101,7 +111,8 @@
       };
     },
     components:{
-       cjChildCpt
+       cjChildCpt,
+       cjInput
     },
     methods: {
       submitForm(formName) {
