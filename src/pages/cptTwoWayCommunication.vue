@@ -40,6 +40,7 @@
       <h5 style="margin:5px 0">自定义组件cjInput实现数据双向绑定</h5>
       {{cjInputVal}}
       <cj-input v-model="cjInputVal"></cj-input>
+      <cj-input type="password" v-model="cjInputVal"></cj-input>
     </div>
   </div>
 </template>

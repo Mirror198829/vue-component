@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="text" :value="value" @input="$emit('input',$event.target.value)">
+        <input :type="type" :value="value" @input="$emit('input',$event.target.value)">
     </div>
 </template>
 
@@ -13,7 +13,11 @@ export default {
    }
   },
   props:{
-      value:{}
+      value:{},
+      type:{
+          type:String,
+          default:'text'
+      }
   },
   components: {
 
