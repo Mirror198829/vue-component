@@ -31,6 +31,11 @@ export default new Router({
       component: () => import('@/pages/cptTwoWayCommunication.vue')
     },
     {
+      path: '/customCpt',
+      name: 'customCpt',
+      component: () => import('@/pages/customCpt/customCpt.vue')
+    },
+    {
       path: '/vueX',
       name: 'vueX',
       component: () => import('@/pages/vueX.vue')
