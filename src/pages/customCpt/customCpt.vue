@@ -1,23 +1,30 @@
 <template>
-  <div>
-    <h5 style="margin:5px 0">自定义组件cjInput实现数据双向绑定</h5>
-    {{cjInputVal}}
-    <cj-input v-model="cjInputVal"></cj-input>
-    <cj-input type="password" v-model="cjInputVal"></cj-input>
+  <div>  
+    <cj-form-item label="用户名"> 
+        <cj-input v-model="model.username"></cj-input>
+    </cj-form-item>
+    <cj-form-item label="密码">
+        <cj-input type="password" v-model="model.password"></cj-input>
+    </cj-form-item>
   </div>
 </template>
 
 <script>
   import cjInput from './components/cjInput'
+  import cjFormItem from './components/cjFormItem'
   export default {
     name: '',
     data() {
       return {
-        cjInputVal: "我是一个双向数据绑定",
+        model:{
+            username:'ccc',
+            password:1234
+        },
       }
     },
     components: {
-      cjInput
+      cjInput,
+      cjFormItem
     },
     methods: {
 
