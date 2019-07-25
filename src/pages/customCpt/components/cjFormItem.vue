@@ -13,29 +13,32 @@
 <script>
 export default {
   name:'cjFormItem',
+  inject:['form'],//注入
   props:{
       label:{
-          type:String,
-          default:''
-      },
-      error:{
           type:String,
           default:''
       }
   },
   data(){
    return {
-
+       error:"",
+       data:'111'
    }
   },
   components: {
-
   },
   methods:{
-
+     validate(){
+         //执行具体校验工作
+         //1.获取校验规则
+         console.log(this.form.rules)
+         //2.获取数据模型
+     } 
   },
   mounted(){
-
+      //监听校验事件
+      this.$on('validate',this.validate)
   },
   created(){}
 }
