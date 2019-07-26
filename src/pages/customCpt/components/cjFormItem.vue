@@ -18,6 +18,9 @@ export default {
       label:{
           type:String,
           default:''
+      },
+      prop:{
+          type:String
       }
   },
   data(){
@@ -32,8 +35,9 @@ export default {
      validate(){
          //执行具体校验工作
          //1.获取校验规则
-         console.log(this.form.rules)
+         console.log(this.form.rules[this.prop])
          //2.获取数据模型
+         console.log(this.form.model[this.prop])
      } 
   },
   mounted(){

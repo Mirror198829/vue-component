@@ -1,11 +1,10 @@
 <template>
   <div>
     <cj-form :model="model" :rules="rules">
-      <cj-form-item label="用户名">
-          {{model.username}}
+      <cj-form-item label="用户名" prop="username">
         <cj-input v-model="model.username"></cj-input>
       </cj-form-item>
-      <cj-form-item label="密码">
+      <cj-form-item label="密码" prop="password">
         <cj-input type="password" v-model="model.password"></cj-input>
       </cj-form-item>
     </cj-form>
@@ -25,7 +24,7 @@
           password: 1234
         },
         rules: {
-          name: [{
+          username: [{
             required: true,message: '不得为空',trigger: 'blur'
           }],
           password:[{
@@ -42,6 +41,7 @@
     methods: {
     },
     mounted() {
+      
     },
     created() {}
   }
