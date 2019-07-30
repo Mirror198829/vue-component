@@ -17,6 +17,7 @@
     "vue-router": "^2.7.0"
   },
   "devDependencies": {
+    "async-validator": "^2.0.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.1.1",
